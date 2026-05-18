@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa BRB Investimentos 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Partículas de fundo -->
+    <canvas id="particles-canvas"></canvas>
+    <div class="bg-grid"></div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo-link">
+                <img src="img\Design sem nome (5).png" alt="Logo BRB Investimentos" class="logo-img">
+            </a>
+            <nav>
+                <a href="#placar" data-label="Placar">Placar</a>
+                <a href="#assessores" data-label="Assessores">Assessores</a>
+                <a href="#regras" data-label="Regras">Regras</a>
+                <a href="#premiacao" data-label="Premiação">Premiação</a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-bg-elements">
+                <div class="hex hex-1"></div>
+                <div class="hex hex-2"></div>
+                <div class="hex hex-3"></div>
+                <div class="light-streak streak-1"></div>
+                <div class="light-streak streak-2"></div>
+            </div>
+            <div class="container hero-inner">
+                <div class="hero-shield-wrap reveal-left">
+                    <div class="hero-shield-ring"></div>
+                    <div class="hero-shield">
+                        <!-- Imagem do escudo vai aqui -->
+                    </div>
+                </div>
+                <div class="hero-text reveal-right">
+                    <div class="hero-tag">
+                        <span class="tag-dot"></span>
+                        Temporada 2026 · Em andamento
+                    </div>
+                    <h1>
+                        <span class="h1-linha linha-copa">COPA</span>
+                        <span class="h1-linha linha-brb">BRB</span>
+                        <span class="h1-linha linha-inv">INVESTIMENTOS</span>
+                        <span class="h1-ano">2026</span>
+                    </h1>
+                    <p class="hero-sub">Seleção Azul &mdash; Todo lance conta para o resultado</p>
+                    <p class="hero-desc">Acompanhe o desempenho semanal dos nossos assessores. Pontuação ao vivo, rodada a rodada.</p>
+                    <div class="hero-buttons">
+                        <a href="#placar" class="btn btn-primary">
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0012 0V2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            Ver Placar da Rodada
+                        </a>
+                        <a href="#assessores" class="btn btn-ghost">
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            Conhecer Assessores
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-hint">
+                <span>role para baixo</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- Placar -->
+        <section id="placar" class="container fade-in">
+            <div class="section-header">
+                <div class="section-tag">Classificação</div>
+                <h3>Placar da Rodada</h3>
+                <p>Acompanhamento semanal por categoria</p>
+            </div>
+
+            <div class="table-wrapper glass-panel">
+                <div class="table-top-bar">
+                    <div class="round-info">
+                        <span class="round-label">Rodada atual</span>
+                        <span class="round-num">1ª Semana</span>
+                    </div>
+                    <div class="live-badge">
+                        <span class="live-dot"></span>
+                        Ao Vivo
+                    </div>
+                </div>
+
+                <table class="leaderboard">
+                    <thead>
+                        <tr>
+                            <th class="col-pos">#</th>
+                            <th class="col-name">Assessor</th>
+                            <th class="col-stat">Retenção</th>
+                            <th class="col-stat">Captação Bruta</th>
+                            <th class="col-stat">Receita</th>
+                            <th class="col-score">Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Assessores -->
+        <section id="assessores" class="container fade-in">
+            <div class="section-header center">
+                <div class="section-tag">Elenco</div>
+                <h3>Assessores em Campo</h3>
+            </div>
+            <div class="cards-grid">
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <!-- Imagem do Luis vai aqui -->
+                            <div class="card-img-slot"></div>
+                            <div class="card-front-label">Luis Siscato</div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="flip-back-content">
+                                <div class="flip-avatar"></div>
+                                <h4>Luis Siscato</h4>
+                                <p class="flip-role">Assessor Sênior</p>
+                                <ul class="flip-stats">
+                                    <li><span>Retenção</span><strong>0,0%</strong></li>
+                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
+                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
+                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
+                                </ul>
+                                <div class="flip-badge leader">Líder da Rodada</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="card-img-slot"></div>
+                            <div class="card-front-label">Erick Rodrigo</div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="flip-back-content">
+                                <div class="flip-avatar"></div>
+                                <h4>Erick Rodrigo</h4>
+                                <p class="flip-role">Assessor Sênior</p>
+                                <ul class="flip-stats">
+                                    <li><span>Retenção</span><strong>0,0%</strong></li>
+                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
+                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
+                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
+                                </ul>
+                                <div class="flip-badge silver">Vice-Líder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="card-img-slot"></div>
+                            <div class="card-front-label">Pedro Aleixo</div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="flip-back-content">
+                                <div class="flip-avatar"></div>
+                                <h4>Pedro Aleixo</h4>
+                                <p class="flip-role">Assessor Pleno</p>
+                                <ul class="flip-stats">
+                                    <li><span>Retenção</span><strong>0,0%</strong></li>
+                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
+                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
+                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
+                                </ul>
+                                <div class="flip-badge bronze">Top 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="card-img-slot"></div>
+                            <div class="card-front-label">Rafael Barbosa</div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="flip-back-content">
+                                <div class="flip-avatar"></div>
+                                <h4>Rafael Barbosa</h4>
+                                <p class="flip-role">Assessor Pleno</p>
+                                <ul class="flip-stats">
+                                    <li><span>Retenção</span><strong>0,0%</strong></li>
+                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
+                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
+                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="card-img-slot"></div>
+                            <div class="card-front-label">Sam</div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="flip-back-content">
+                                <div class="flip-avatar"></div>
+                                <h4>Sam</h4>
+                                <p class="flip-role">Assessor</p>
+                                <ul class="flip-stats">
+                                    <li><span>Retenção</span><strong>0,0%</strong></li>
+                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
+                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
+                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="card-img-slot"></div>
+                            <div class="card-front-label">Clérton</div>
+                        </div>
+                       <div class="flip-back">
+                            <div class="flip-back-content">
+                                <div class="flip-avatar"></div>
+                                <h4>Clérton</h4>
+                                <p class="flip-role">Assessor</p>
+                                <ul class="flip-stats">
+                                    <li><span>Retenção</span><strong>0,0%</strong></li>
+                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
+                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
+                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <p class="flip-hint">Passe o mouse sobre o card para ver os detalhes</p>
+        </section>
+
+        <!-- Regras -->
+        <section id="regras" class="container fade-in">
+            <div class="glass-panel rules-panel">
+                <div class="section-header center">
+                    <div class="section-tag">Como funciona</div>
+                    <h3>Regras da Campanha</h3>
+                </div>
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        </div>
+                        <h5>Apuração Semanal</h5>
+                        <p>Resultados consolidados toda semana para acompanhamento em tempo real</p>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                        </div>
+                        <h5>Três Categorias</h5>
+                        <p>Retenção de Carteira, Captação Bruta e Receita gerada no período</p>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                        </div>
+                        <h5>Metas &amp; Gatilhos</h5>
+                        <p>Metas e gatilhos de pontuação definidos internamente pela gestão</p>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <h5>Placar ao Vivo</h5>
+                        <p>Pontuação atualizada ao longo do mês para acompanhar a evolução</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premiação -->
+        <section id="premiacao" class="container fade-in">
+            <div class="section-header center">
+                <div class="section-tag">Prêmios</div>
+                <h3>Premiação</h3>
+            </div>
+            <div class="prizes-grid">
+                <div class="prize-card second-place">
+                    <div class="prize-pos">2º lugar</div>
+                    <div class="prize-img-slot">
+                        <!-- Imagem vai aqui -->
+                    </div>
+                    <div class="prize-label">Voucher em Restaurante</div>
+                </div>
+                <div class="prize-card first-place">
+                    <div class="prize-crown">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M2 19h20M3 9l4 5 5-9 5 9 4-5-2 10H5L3 9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="prize-pos">1º lugar</div>
+                    <div class="prize-img-slot">
+                        <!-- Imagem vai aqui -->
+                    </div>
+                    <div class="prize-label">Camisa Oficial da Seleção</div>
+                </div>
+                <div class="prize-card third-place">
+                    <div class="prize-pos">3º lugar</div>
+                    <div class="prize-img-slot">
+                        <!-- Imagem vai aqui -->
+                    </div>
+                    <div class="prize-label">Troféu de Reconhecimento</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-text">
+                <h3>Acompanhe semanalmente a<br><span>evolução da Seleção Azul.</span></h3>
+            </div>
+            <a href="#" class="logo-link">
+                <img src="img\Design sem nome (5).png" alt="Logo BRB Investimentos" class="logo-img">
+            </a>
+        </div>
+        <div class="footer-line"></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
