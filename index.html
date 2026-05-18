@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copa BRB Investimentos 2026</title>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
@@ -70,7 +71,12 @@
                         </a>
                         <a href="#assessores" class="btn btn-ghost">
                             <span class="btn-icon">
-                                <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                      <circle cx="9" cy="7" r="4"/>
+                                      <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                                </svg>
+
                             </span>
                             Conhecer Assessores
                         </a>
@@ -92,16 +98,16 @@
             </div>
 
             <div class="table-wrapper glass-panel">
-                <div class="table-top-bar">
-                    <div class="round-info">
-                        <span class="round-label">Rodada atual</span>
-                        <span class="round-num">1ª Semana</span>
-                    </div>
-                    <div class="live-badge">
-                        <span class="live-dot"></span>
-                        Ao Vivo
-                    </div>
-                </div>
+               <div class="table-top-bar">
+    <div class="round-info">
+        <span class="round-label">Rodada atual</span>
+        <span class="round-num">1ª Semana</span>
+    </div>
+        <div class="live-badge">
+        <span class="live-dot"></span>
+        Ao Vivo
+    </div>
+</div>
 
                 <table class="leaderboard">
                     <thead>
@@ -125,145 +131,12 @@
                 <div class="section-tag">Elenco</div>
                 <h3>Assessores em Campo</h3>
             </div>
-            <div class="cards-grid">
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <!-- Imagem do Luis vai aqui -->
-                            <div class="card-img-slot"></div>
-                            <div class="card-front-label">Luis Siscato</div>
-                        </div>
-                        <div class="flip-back">
-                            <div class="flip-back-content">
-                                <div class="flip-avatar"></div>
-                                <h4>Luis Siscato</h4>
-                                <p class="flip-role">Assessor Sênior</p>
-                                <ul class="flip-stats">
-                                    <li><span>Retenção</span><strong>0,0%</strong></li>
-                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
-                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
-                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
-                                </ul>
-                                <div class="flip-badge leader">Líder da Rodada</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <div class="card-img-slot"></div>
-                            <div class="card-front-label">Erick Rodrigo</div>
-                        </div>
-                        <div class="flip-back">
-                            <div class="flip-back-content">
-                                <div class="flip-avatar"></div>
-                                <h4>Erick Rodrigo</h4>
-                                <p class="flip-role">Assessor Sênior</p>
-                                <ul class="flip-stats">
-                                    <li><span>Retenção</span><strong>0,0%</strong></li>
-                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
-                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
-                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
-                                </ul>
-                                <div class="flip-badge silver">Vice-Líder</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <div class="card-img-slot"></div>
-                            <div class="card-front-label">Pedro Aleixo</div>
-                        </div>
-                        <div class="flip-back">
-                            <div class="flip-back-content">
-                                <div class="flip-avatar"></div>
-                                <h4>Pedro Aleixo</h4>
-                                <p class="flip-role">Assessor Pleno</p>
-                                <ul class="flip-stats">
-                                    <li><span>Retenção</span><strong>0,0%</strong></li>
-                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
-                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
-                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
-                                </ul>
-                                <div class="flip-badge bronze">Top 3</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <div class="card-img-slot"></div>
-                            <div class="card-front-label">Rafael Barbosa</div>
-                        </div>
-                        <div class="flip-back">
-                            <div class="flip-back-content">
-                                <div class="flip-avatar"></div>
-                                <h4>Rafael Barbosa</h4>
-                                <p class="flip-role">Assessor Pleno</p>
-                                <ul class="flip-stats">
-                                    <li><span>Retenção</span><strong>0,0%</strong></li>
-                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
-                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
-                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <div class="card-img-slot"></div>
-                            <div class="card-front-label">Sam</div>
-                        </div>
-                        <div class="flip-back">
-                            <div class="flip-back-content">
-                                <div class="flip-avatar"></div>
-                                <h4>Sam</h4>
-                                <p class="flip-role">Assessor</p>
-                                <ul class="flip-stats">
-                                    <li><span>Retenção</span><strong>0,0%</strong></li>
-                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
-                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
-                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <div class="card-img-slot"></div>
-                            <div class="card-front-label">Clérton</div>
-                        </div>
-                       <div class="flip-back">
-                            <div class="flip-back-content">
-                                <div class="flip-avatar"></div>
-                                <h4>Clérton</h4>
-                                <p class="flip-role">Assessor</p>
-                                <ul class="flip-stats">
-                                    <li><span>Retenção</span><strong>0,0%</strong></li>
-                                    <li><span>Captação</span><strong>R$ 0,0</strong></li>
-                                    <li><span>Receita</span><strong>R$ 0K</strong></li>
-                                    <li><span>Pontos</span><strong class="pts">0</strong></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="cards-grid" id="cards-grid 1">
             </div>
+
+
+
+
             <p class="flip-hint">Passe o mouse sobre o card para ver os detalhes</p>
         </section>
 
@@ -353,7 +226,7 @@
         </div>
         <div class="footer-line"></div>
     </footer>
-
+    <script src="dados.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
