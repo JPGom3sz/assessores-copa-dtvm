@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const tbody = document.getElementById('leaderboard-body');
         if (!tbody) return;
 
-        // "ASSESSORES" agora vem direto do arquivo dados.js
         const sorted = [...ASSESSORES].sort((a, b) => b.pontos - a.pontos);
         const medalConfig = [
             { cls: 'gold',   label: 'Líder da rodada',  svg: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 15l3.09-1.96L12 9l-3.09 4.04L12 15z"/><path d="M8.5 17.5l-2-3 5.5-3.5 5.5 3.5-2 3H8.5z"/><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.5"/></svg>` },
@@ -42,12 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const subtitle = isTop ? `<span>${medal.label}</span>` : '';
             const rowClass = isTop ? `row-top top-${pos}` : 'row-normal';
 
+            // Verifica se a foto existe, se não, não quebra a tela
+            const fotoHtml = a.foto ? `<img src="${a.foto}" alt="${a.nome}">` : '';
+
             return `
             <tr class="${rowClass}" data-pos="${pos}">
                 <td class="col-pos">${posCell}</td>
                 <td class="col-name">
                     <div class="assessor-cell">
-                        <div class="avatar" style="--av-color:${a.avColor}"></div>
+                        <div class="avatar" style="--av-color:${a.avColor}">
+                            ${fotoHtml}
+                        </div>
                         <div class="assessor-meta">
                             <strong>${a.nome}</strong>
                             ${subtitle}
@@ -83,16 +87,22 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (i === 1) badgeHtml = `<div class="flip-badge silver">Vice-Líder</div>`;
             else if (i === 2) badgeHtml = `<div class="flip-badge bronze">Top 3</div>`;
 
+            const fotoHtml = a.foto ? `<img src="${a.foto}" alt="${a.nome}">` : '';
+
             return `
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-front">
-                        <div class="card-img-slot"></div>
-                        <div class="card-front-label">${a.nome}</div>
+                        <div class="card-img-slot">
+                            ${fotoHtml}
+                        </div>
+
                     </div>
                     <div class="flip-back">
                         <div class="flip-back-content">
-                            <div class="flip-avatar" style="--av-color:${a.avColor}"></div>
+                            <div class="flip-avatar" style="--av-color:${a.avColor}">
+                                ${fotoHtml}
+                            </div>
                             <h4>${a.nome}</h4>
                             <p class="flip-role">Assessor</p>
                             <ul class="flip-stats">
