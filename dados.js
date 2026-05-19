@@ -61,7 +61,7 @@ const QUINZENAS = [
        label: '1ª Quinzena',
         status: 'Em breve', 
         data: [
-            { nome: 'Luis Siscato',      retencaoV: 0, retencao: '10%', captacao: 'R$ 50', captacaoV: 50, receita: 'R$ 0', receitaV: 0, pontos: 10 },
+            { nome: 'Luis Siscato',      retencaoV: 0, retencao: '0%', captacao: 'R$ 0', captacaoV: 0, receita: 'R$ 0', receitaV: 0, pontos: 0 },
             { nome: 'Erick Rodrigo',     retencaoV: 0, retencao: '0%', captacao: 'R$ 0', captacaoV: 0, receita: 'R$ 0', receitaV: 0, pontos: 0 },
             { nome: 'Pedro Aleixo',      retencaoV: 0, retencao: '0%', captacao: 'R$ 0', captacaoV: 0, receita: 'R$ 0', receitaV: 0, pontos: 0 },
             { nome: 'Rafael Barbosa',    retencaoV: 0, retencao: '0%', captacao: 'R$ 0', captacaoV: 0, receita: 'R$ 0', receitaV: 0, pontos: 0 },
