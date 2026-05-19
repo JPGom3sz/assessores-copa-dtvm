@@ -359,28 +359,26 @@ document.addEventListener('DOMContentLoaded', () => {
         header.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
             e.preventDefault();
-            const el = document.querySelector('#inicio-logo');
+            
+            // Pega o destino correto do botão clicado (ex: "#placar")
+            const targetId = anchor.getAttribute('href');
+            const el = document.querySelector(targetId);
+            
             if (el) {
+                // O -94 compensa a altura do seu header fixo para não cobrir o título
                 const top = el.getBoundingClientRect().top + window.scrollY - 94;
                 window.scrollTo({ top, behavior: 'smooth' });
             }
         });
     });
 
+   
 
- document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', e => {
-            e.preventDefault();
-            const el = document.querySelector('#final-logo');
-            if (el) {
-                const top = el.getBoundingClientRect().top + window.scrollY - 94;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
-        });
-    });
+
+ 
 
     const io = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
