@@ -362,7 +362,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
             e.preventDefault();
-            const el = document.querySelector(anchor.getAttribute('href'));
+            const el = document.querySelector('#inicio-logo');
+            if (el) {
+                const top = el.getBoundingClientRect().top + window.scrollY - 94;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+
+ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            e.preventDefault();
+            const el = document.querySelector('#final-logo');
             if (el) {
                 const top = el.getBoundingClientRect().top + window.scrollY - 94;
                 window.scrollTo({ top, behavior: 'smooth' });
