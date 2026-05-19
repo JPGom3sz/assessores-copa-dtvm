@@ -1,0 +1,21 @@
+{
+  "name": "assessores-copa-dtvm",
+  "version": "1.0.0",
+  "description": "Copa BRB Investimentos 2026 - Sistema de acompanhamento de assessores",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Open index.html in your browser'",
+    "build": "echo 'Static site - no build required'"
+  },
+  "keywords": [
+    "copa",
+    "brb",
+    "investimentos",
+    "analytics"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
