@@ -472,30 +472,34 @@ section { padding: 80px 0; }
 }
 
 /* ===== FILTER BAR ===== */
+
 .filter-bar {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     margin-bottom: 24px;
-    padding-bottom: 20px;
+    padding-bottom: 16px;
     border-bottom: 1px solid var(--border);
 }
 
 .filter-tabs {
     display: flex;
-    gap: 8px;
     background: rgba(255,255,255,0.04);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 5px;
-    width: fit-content;
+    padding: 6px;
+    width: 100%;
+    max-width: 380px; /* Evita que o botão fique gigante no notebook */
+    gap: 4px;
 }
 
 .filter-tab {
-    display: inline-flex;
+    flex: 1; /* Mágica aqui: força as duas abas a terem EXATAMENTE 50% do tamanho */
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 9px 20px;
+    padding: 10px 0; /* Remove o espaçamento lateral fixo que estava quebrando a borda */
     border-radius: 8px;
     font-family: var(--font-body);
     font-size: 0.82rem;
@@ -506,37 +510,29 @@ section { padding: 80px 0; }
     background: transparent;
     border: none;
     cursor: pointer;
-    transition: color 0.25s, background 0.25s, box-shadow 0.25s;
+    transition: all 0.25s ease;
 }
-.filter-tab svg {
-    width: 15px;
-    height: 15px;
-    flex-shrink: 0;
-    transition: color 0.25s;
-}
-.filter-tab:hover {
-    color: var(--white);
-    background: rgba(255,255,255,0.06);
-}
-.filter-tab.active {
-    color: var(--bg);
-    background: var(--white);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-}
-.filter-tab[data-view="geral"].active {
-    background: linear-gradient(135deg, #a78bfa, #7c3aed);
-    color: #fff;
-    box-shadow: 0 2px 14px rgba(124,58,237,0.4);
-}
+.filter-tab svg { width: 16px; height: 16px; flex-shrink: 0; }
+.filter-tab:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+.filter-tab.active { color: var(--bg); background: var(--white); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.filter-tab[data-view="geral"].active { background: linear-gradient(135deg, #a78bfa, #7c3aed); color: #fff; box-shadow: 0 4px 15px rgba(124,58,237,0.3); }
 
-/* Seletor de quinzenas */
+/* Carrossel de Quinzenas (Scroll horizontal suave) */
 .quinzena-selector {
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch; /* Rolagem macia no iPhone */
+    scrollbar-width: none; /* Esconde a barra no Firefox */
+    -ms-overflow-style: none; /* Esconde a barra no Edge */
 }
+.quinzena-selector::-webkit-scrollbar { display: none; /* Esconde a barra no Chrome/Safari */ }
+
 .qz-btn {
-    padding: 5px 14px;
+    flex-shrink: 0; /* Impede que os botões amassem */
+    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+    padding: 8px 16px;
     border-radius: 8px;
     font-family: var(--font-body);
     font-size: 0.75rem;
@@ -549,18 +545,28 @@ section { padding: 80px 0; }
     cursor: pointer;
     transition: color 0.2s, background 0.2s, border-color 0.2s;
 }
-.qz-btn:hover {
-    color: var(--white);
-    background: var(--blue-dim);
-    border-color: var(--border-glow);
-}
-.qz-btn.active {
-    color: var(--blue);
-    background: var(--blue-dim);
-    border-color: var(--blue-mid);
-}
+.qz-btn:hover { color: var(--white); background: var(--blue-dim); border-color: var(--border-glow); }
+.qz-btn.active { color: var(--blue); background: var(--blue-dim); border-color: var(--blue-mid); }
 
 /* ===== TABLE ===== */
+
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Rolagem suave no celular */
+    padding-bottom: 10px; /* Espaço para a barra de rolagem não sobrepor dados */
+}
+
+.table-scroll::-webkit-scrollbar { height: 6px; }
+.table-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); border-radius: 4px; }
+.table-scroll::-webkit-scrollbar-thumb { background: rgba(0, 210, 255, 0.3); border-radius: 4px; }
+
+
+
+
+
+
+
 .table-wrapper { overflow: hidden; }
 
 .table-top-bar {
@@ -615,6 +621,7 @@ section { padding: 80px 0; }
 .leaderboard {
     width: 100%;
     border-collapse: collapse;
+    min-width: 800px; /* Mágica acontece aqui: força a tabela a ter no mínimo 800px, ativando o scroll no celular */
 }
 
 .leaderboard thead th {
@@ -1077,10 +1084,33 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        height: auto;
+        padding-bottom: 40px; 
+    }
+    .hero-scroll-hint {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 48px;
+    
+}
+
    .hero-inner { grid-template-columns: 1fr; text-align: center; }
     .hero-shield { max-width: 320px; margin: 0 auto; }
     .hero-shield-wrap { justify-content: center; }
-    .hero-buttons { justify-content: center; flex-wrap: wrap; }
+    .hero-buttons { 
+        flex-direction: column; 
+        width: 100%;
+        align-items: center;
+        gap: 12px;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
     .hero-desc { margin: 0 auto; }
 
     nav { display: none; }
@@ -1107,4 +1137,29 @@ footer {
     .linha-brb  { font-size: 4.5rem; }
     .linha-copa { font-size: 3.8rem; }
     .h1-ano     { font-size: 4.5rem; }
+}
+
+
+
+@media (max-width: 768px) {
+    /* Abas 50/50 no celular */
+    .filter-tabs { width: 100%; }
+    .filter-tab { flex: 1; justify-content: center; }
+
+    /* Ajuste da barra em cima da tabela para não espremer */
+    .table-top-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+    /* FORÇA A TABELA A MANTER O FORMATO (Para o scroll horizontal funcionar) */
+    .leaderboard { 
+        display: table !important; 
+        min-width: 700px !important; /* Tamanho mínimo para caber tudo lado a lado */
+    }
+    .leaderboard thead { display: table-header-group !important; }
+    .leaderboard tbody { display: table-row-group !important; }
+    .leaderboard tr { display: table-row !important; }
+    .leaderboard th, .leaderboard td { display: table-cell !important; }
+    
+    /* OBS: Se houver uma linha escrita ".col-stat { display: none; }" APAGUE ELA! */
+    
+    /* ... mantenha o resto do seu código mobile que já estava aqui ... */
 }
